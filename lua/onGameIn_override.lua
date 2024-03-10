@@ -18,6 +18,9 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
     local pldRebirth = player:getCharVar('PLD_rebirth')
     local drkRebirth = player:getCharVar('DRK_rebirth')
     local bstRebirth = player:getCharVar('BST_rebirth')
+    local brdRebirth = player:getCharVar('BRD_rebirth')
+    local rngRebirth = player:getCharVar('RNG_rebirth')
+    local samRebirth = player:getCharVar('SAM_rebirth')
 
 
     if tier1 > 0 then
@@ -96,6 +99,30 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
         player:addMod(xi.mod.PET_MACC_MEVA, 50 + 50 * bstRebirth)
         player:addMod(xi.mod.PET_ATTR_BONUS, 50 + 50 * bstRebirth)
     end
+
+    if brdRebirth > 0 then
+        player:addMod(xi.mod.MAXIMUM_SONGS_BONUS, 1 * brdRebirth)
+        player:addMod(xi.mod.SINGING, 15 + 20 * brdRebirth)
+        player:addMod(xi.mod.STRING, 15 + 20 * brdRebirth)
+        player:addMod(xi.mod.WIND, 15 + 20 * brdRebirth)
+        player:addMod(xi.mod.ALL_SONGS_EFFECT, 1 + 1 * brdRebirth)
+    end
+
+    if rngRebirth > 0 then
+        player:addMod(xi.mod.RANGED_CRIT_DMG_INCREASE, 15 + 5 * rngRebirth)
+        player:addMod(xi.mod.ARCHERY, 15 + 20 * rngRebirth)
+        player:addMod(xi.mod.MARKSMANSHIP, 15 + 20 * rngRebirth)
+        player:addMod(xi.mod.RECYCLE, 150)
+        player:addMod(xi.mod.RANGED_DELAY, 3 + 2 * rngRebirth)
+    end
+
+    if samRebirth > 0 then
+        player:addMod(xi.mod.ZANSHIN, 25 + 10 * samRebirth)
+        player:addMod(xi.mod.GKATANA, 15 + 20 * samRebirth)
+        player:addMod(xi.mod.PARRY, 15 + 20 * samRebirth)
+        player:addMod(xi.mod.STORETP, 15 + 15 * samRebirth)
+    end
+
 end)
 
 return m
