@@ -51,7 +51,7 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
     end
 
     if blmRebirth > 0 then
-        player:addMod(xi.mod.MATT, 20 + 35 * blmRebirth)
+        player:addMod(xi.mod.MATT, 50 + 35 * blmRebirth)
         player:addMod(xi.mod.ELEM, 15 + 20 * blmRebirth)
         player:addMod(xi.mod.DARK, 15 + 20 * blmRebirth)
         player:addMod(xi.mod.MAG_BURST_BONUS, 10 + 10 * blmRebirth)
@@ -76,6 +76,13 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
         player:addMod(xi.mod.SWORD, 15 + 20 * pldRebirth)
         player:addMod(xi.mod.SHIELD, 15 + 20 * pldRebirth)
         player:addMod(xi.mod.DEF, 50 + 35 * pldRebirth)
+    end
+
+    if drkRebirth > 0 then
+        player:addMod(xi.mod.ATT, 50 + 35 * drkRebirth)
+        player:addMod(xi.mod.GSWORD, 15 + 20 * drkRebirth)
+        player:addMod(xi.mod.SCYTHE, 15 + 20 * drkRebirth)
+        player:addMod(xi.mod.SMITE, 5 + 5 * drkRebirth)
     end
 end)
 

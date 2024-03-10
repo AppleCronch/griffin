@@ -16,6 +16,7 @@ local jobTable =
     [5] = {'RDM'},
     [6] = {'THF'},
     [7] = {'PLD'},
+    [8] = {'DRK'},
 }
 
 
