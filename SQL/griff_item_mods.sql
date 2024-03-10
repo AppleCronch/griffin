@@ -1,0 +1,2 @@
+INSERT INTO `item_mods` VALUES (20977,174,15);
+INSERT INTO `item_mods` VALUES (20977,175,15);
