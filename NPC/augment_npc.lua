@@ -21,6 +21,7 @@ local jobTable =
     [10] = {'BRD'},
     [11] = {'RNG'},
     [12] = {'SAM'},
+    [13] = {'NIN'},
 }
 
 

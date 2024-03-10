@@ -21,6 +21,7 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
     local brdRebirth = player:getCharVar('BRD_rebirth')
     local rngRebirth = player:getCharVar('RNG_rebirth')
     local samRebirth = player:getCharVar('SAM_rebirth')
+    local ninRebirth = player:getCharVar('NIN_rebirth')
 
 
     if tier1 > 0 then
@@ -123,6 +124,12 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
         player:addMod(xi.mod.STORETP, 15 + 15 * samRebirth)
     end
 
+    if ninRebirth > 0 then
+        player:addMod(xi.mod.DUAL_WIELD, 5)
+        player:addMod(xi.mod.KATANA, 15 + 20 * ninRebirth)
+        player:addMod(xi.mod.NINJUTSU, 15 + 20 * ninRebirth)
+        player:addMod(xi.mod.QUAD_ATTACK, 3 + 2 * ninRebirth)
+    end
 end)
 
 return m
