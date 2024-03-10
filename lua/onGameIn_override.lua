@@ -15,6 +15,9 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
     local blmRebirth = player:getCharVar('BLM_rebirth')
     local rdmRebirth = player:getCharVar('RDM_rebirth')
     local thfRebirth = player:getCharVar('THF_rebirth')
+    local pldRebirth = player:getCharVar('PLD_rebirth')
+    local drkRebirth = player:getCharVar('DRK_rebirth')
+    local bstRebirth = player:getCharVar('BST_rebirth')
 
 
     if tier1 > 0 then
@@ -83,6 +86,15 @@ m:addOverride('xi.player.onGameIn', function(player, firstLogin, zoning)
         player:addMod(xi.mod.GSWORD, 15 + 20 * drkRebirth)
         player:addMod(xi.mod.SCYTHE, 15 + 20 * drkRebirth)
         player:addMod(xi.mod.SMITE, 5 + 5 * drkRebirth)
+    end
+
+    if bstRebirth > 0 then
+        player:addMod(xi.mod.TANDEM_STRIKE_POWER, 30 + 15 * bstRebirth)
+        player:addMod(xi.mod.PET_ATK_DEF, 50 + 50 * bstRebirth)
+        player:addMod(xi.mod.PET_ACC_EVA, 50 + 50 * bstRebirth)
+        player:addMod(xi.mod.PET_MAB_MDB, 50 + 50 * bstRebirth)
+        player:addMod(xi.mod.PET_MACC_MEVA, 50 + 50 * bstRebirth)
+        player:addMod(xi.mod.PET_ATTR_BONUS, 50 + 50 * bstRebirth)
     end
 end)
 
