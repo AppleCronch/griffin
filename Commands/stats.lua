@@ -116,7 +116,7 @@ commandObj.onTrigger = function(player, modid)
     else
         dlCap = cappedRatio
         player:printToPlayer(string.format('Uncapped'), xi.msg.channel.SYSTEM_3)
-    end
+    end 
 
     local pdif = (wCap + plus) * plusp + 1
     local playerATT = player:getStat(xi.mod.ATT)
@@ -133,6 +133,7 @@ commandObj.onTrigger = function(player, modid)
     player:printToPlayer(string.format('QA %s', player:getMod(xi.mod.QUAD_ATTACK)), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('DW %s', player:getMod(xi.mod.DUAL_WIELD)), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('1 hour recast reduction %s', player:getMod(xi.mod.ONE_HOUR_RECAST)), xi.msg.channel.SYSTEM_3)
+    player:printToPlayer(string.format('WS DMG %s', player:getMod(xi.mod.ALL_WSDMG_ALL_HITS)), xi.msg.channel.SYSTEM_3)
 
 end
 
