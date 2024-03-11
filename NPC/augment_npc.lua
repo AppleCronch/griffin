@@ -22,6 +22,16 @@ local jobTable =
     [11] = {'RNG'},
     [12] = {'SAM'},
     [13] = {'NIN'},
+    [14] = {'DRG'},
+    [15] = {'SMN'},
+    [16] = {'BLU'},
+    [16] = {'BLU'},
+    [17] = {'COR'},
+    [18] = {'PUP'},
+    [19] = {'DNC'},
+    [20] = {'SCH'},
+    [21] = {'GEO'},
+    [22] = {'RUN'},
 }
 
 
@@ -32,10 +42,12 @@ local onTriggerFunc = function(player, npc)
     local jobRebirthVar = string.format('%s_rebirth', jobName)
     local jobRebirth = player:getCharVar(jobRebirthVar)
     local tier1 = player:getCharVar('tier1_rebirth')
+    local tier2 = player:getCharVar('tier2_rebirth')
     player:printToPlayer('Ho ho ho, what do you need dear adventurer?', 0, npc:getPacketName())
     player:printToPlayer(string.format('Current job: %s', jobName), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('%s', jobRebirthVar), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('%s', jobRebirth), xi.msg.channel.SYSTEM_3)
+    player:printToPlayer(string.format('tier 1 rebirths %s', tier1), xi.msg.channel.SYSTEM_3)
 
     -- Forward declarations (required)
     local menu  = {}
@@ -70,7 +82,11 @@ local onTriggerFunc = function(player, npc)
             'Job rebirth',
 
             function(playerArg)
-                if player:getMainLvl() >=99 then
+                if jobRebirth == 2 and tier2 < 22 then
+                    player:printToPlayer('To unlock third rebirth you must go through second rebirth with all jobs', 0, npc:getPacketName())
+                elseif jobRebirth == 1 and tier1 < 22 then
+                    player:printToPlayer('To unlock second rebirth you must go through rebirth with all jobs', 0, npc:getPacketName())
+                elseif player:getMainLvl() >=99 then
                     player:printToPlayer(string.format('You are qualified for rebirth', player:getSpentJobPoints()), 0, npc:getPacketName())
                     menu.title = 'This will reset your current job to level 1'
                     menu.options = rebirthConfirm
@@ -116,6 +132,10 @@ local onTriggerFunc = function(player, npc)
                 if jobRebirth < 1 then
                     player:setCharVar(jobRebirthVar, 1)
                     player:setCharVar('tier1_rebirth', tier1 + 1)
+                    player:setLevel(1)
+                elseif jobRebirth < 2 then
+                    player:setCharVar(jobRebirthVar, 2)
+                    player:setCharVar('tier2_rebirth', tier2 + 1)
                     player:setLevel(1)
                 else
                     player:printToPlayer('Oops further rebirths are not implemented yet', 0, npc:getPacketName())
@@ -235,7 +255,5 @@ m:addOverride('xi.zones.Bastok_Mines.Zone.onInitialize', function(zone)
     -- Menu NPC Example
 end)    
 
-xi.zones.Bastok_Mines.npcs.DE_Horro.onTrigger = onTriggerFunc
-xi.zones.Bastok_Mines.npcs.DE_Horro.onTrade = onTradeFunc
 
 return m

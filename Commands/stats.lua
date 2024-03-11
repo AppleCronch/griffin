@@ -131,6 +131,7 @@ commandObj.onTrigger = function(player, modid)
     player:printToPlayer(string.format('DA %s', player:getMod(xi.mod.DOUBLE_ATTACK)), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('TA %s', player:getMod(xi.mod.TRIPLE_ATTACK)), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('QA %s', player:getMod(xi.mod.QUAD_ATTACK)), xi.msg.channel.SYSTEM_3)
+    player:printToPlayer(string.format('DW %s', player:getMod(xi.mod.DUAL_WIELD)), xi.msg.channel.SYSTEM_3)
     player:printToPlayer(string.format('1 hour recast reduction %s', player:getMod(xi.mod.ONE_HOUR_RECAST)), xi.msg.channel.SYSTEM_3)
 
 end
